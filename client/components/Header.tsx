@@ -36,21 +36,22 @@ const Header: React.FC = () => {
           method: "wallet_addEthereumChain",
           params: [
             {
-              chainId: "0x14A34", // Base Sepolia's chain ID in hexadecimal (84532 in decimal)
-              chainName: "Base Sepolia",
+              chainId: "0xaa37dc",
+              chainName: "Mantle Sepolia",
               nativeCurrency: {
-                name: "ETH",
-                symbol: "ETH",
+                name: "MNT",
+                symbol: "MNT",
                 decimals: 18,
               },
-              rpcUrls: ["https://sepolia.base.org"],
-              blockExplorerUrls: ["https://sepolia.basescan.org"],
+              rpcUrls: ["https://rpc.sepolia.mantle.xyz"],
+              blockExplorerUrls: ["https://explorer.sepolia.mantle.xyz"],
             },
           ],
         });
       switchChain({ chainId: 84532 });
     }
   };
+
 
   useEffect(() => {
     if (address) giveGas(address as string);
