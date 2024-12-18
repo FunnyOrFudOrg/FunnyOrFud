@@ -41,6 +41,13 @@ const MemeView = () => {
     args: [BigInt(templateId)],
   });
 
+  interface Meme {
+    creator: string;
+    cid: string;
+    memeTemplate: number;
+    image?: string;
+  }
+
   // Handle instructions visibility
   useEffect(() => {
     const hasSeenInstructions = localStorage.getItem("hasSeenMemeInstructions");
@@ -64,6 +71,7 @@ const MemeView = () => {
         }
 
         // Extract memes from market data
+        // @ts-ignore
         const marketMemes = marketData[7] as any[]; // The memes array from the market data
 
         if (!marketMemes || marketMemes.length === 0) {
